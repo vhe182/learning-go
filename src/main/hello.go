@@ -25,14 +25,20 @@ func main() {
 		fmt.Printf("Failed to open resource file.\n")
 		return
 	}
-	fmt.Printf(clArgs[0])
-	fmt.Println()
-	if puzzleutil.ReadMassModuleFile(clArgs[0]) < 0 {
-		fmt.Println("Error: Failed to read in mass module file")
+	fmt.Printf("Mass Module file: %s\n", clArgs[0])
+
+	var numbers []int
+	numbers = puzzleutil.ReadMassModuleFile(clArgs[0])
+	if numbers == nil {
+		fmt.Fprintf(os.Stderr, "ReadMassModuleFile returned nil\n")
 		return
+	}
+
+	for i := 0; i < len(numbers); i++ {
+		fmt.Printf("Value %d is %d\n", i, numbers[i])
 	}
 	fmt.Println()
 	fmt.Println(strconv.Itoa(puzzleutil.CalculateFuel(10)))
 	fmt.Println()
-	fmt.Printf(stringutil.Reverse(clArgs[0]))
+	fmt.Printf(stringutil.Reverse(clArgs[1]))
 }
