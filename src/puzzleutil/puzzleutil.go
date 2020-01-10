@@ -14,7 +14,6 @@ import (
 // param filename, A full or relative path to a mass module file
 // returns, a byte array of integers
 func ReadMassModuleFile(filename string) (numbers []int) {
-	fmt.Println("In ReadMassModuleFile")
 	file, err := os.Open(filename)
 	if err != nil {
 		fmt.Println(err)

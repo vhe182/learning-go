@@ -31,14 +31,6 @@ func main() {
 		fmt.Fprintf(os.Stderr, "ReadMassModuleFile returned nil\n")
 		return
 	}
-
-	for i := 0; i < len(numbers); i++ {
-		if i != 0 && i%5 == 0 {
-			fmt.Println()
-		}
-		fmt.Printf("%d: %d\t", i, numbers[i])
-	}
-	fmt.Println()
 	var fuelCost int = puzzleutil.CalculateFuel(numbers)
 	fmt.Fprintf(os.Stdout,
 		"Total Fuel cost for file:%s is: %d", clArgs[0], fuelCost)
