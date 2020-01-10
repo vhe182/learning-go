@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"os"
 	"puzzleutil"
-	"strconv"
-	"stringutil"
 )
 
 func PrintHelp(cmd string) {
@@ -35,10 +33,13 @@ func main() {
 	}
 
 	for i := 0; i < len(numbers); i++ {
-		fmt.Printf("Value %d is %d\n", i, numbers[i])
+		if i != 0 && i%5 == 0 {
+			fmt.Println()
+		}
+		fmt.Printf("%d: %d\t", i, numbers[i])
 	}
 	fmt.Println()
-	fmt.Println(strconv.Itoa(puzzleutil.CalculateFuel(10)))
-	fmt.Println()
-	fmt.Printf(stringutil.Reverse(clArgs[1]))
+	var fuelCost int = puzzleutil.CalculateFuel(numbers)
+	fmt.Fprintf(os.Stdout,
+		"Total Fuel cost for file:%s is: %d", clArgs[0], fuelCost)
 }

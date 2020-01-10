@@ -4,7 +4,7 @@ package puzzleutil
 import (
 	"bufio"
 	"fmt"
-	//"math"
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -14,7 +14,7 @@ import (
 // param filename, A full or relative path to a mass module file
 // returns, a byte array of integers
 func ReadMassModuleFile(filename string) (numbers []int) {
-	fmt.Println("In ReadMassModuleFile\n")
+	fmt.Println("In ReadMassModuleFile")
 	file, err := os.Open(filename)
 	if err != nil {
 		fmt.Println(err)
@@ -27,9 +27,9 @@ func ReadMassModuleFile(filename string) (numbers []int) {
 		read_line := strings.TrimSuffix(scanner.Text(), "\n")
 		val, ok := strconv.Atoi(read_line)
 		if ok != nil {
-			fmt.Fprintf(os.Stderr, "Error occurred while converting string to integer. %s", err)
+			fmt.Fprintf(os.Stderr,
+				"Error occurred while converting string to integer. %s", err)
 		}
-		//fmt.Printf("val: %d\n", val)
 		numbers = append(numbers, val)
 	}
 
@@ -43,6 +43,10 @@ func ReadMassModuleFile(filename string) (numbers []int) {
 
 // brief, Given a value this function calculates expected fuel cost
 // param val, A unit to use for calculating fuel cost
-func CalculateFuel(val int) int {
-	return 10 //math.Floor(val/3) - 2
+func CalculateFuel(masses []int) int {
+	sum := 0
+	for _, mass := range masses {
+		sum += int(math.Floor(float64(mass/3))) - 2
+	}
+	return sum
 }
