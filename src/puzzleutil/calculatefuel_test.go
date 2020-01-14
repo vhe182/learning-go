@@ -9,8 +9,8 @@ func TestCalculateFuel(t *testing.T) {
 	}{
 		{[]int{12}, 2},
 		{[]int{14}, 2},
-		{[]int{1969}, 654},
-		{[]int{100756}, 33583},
+		{[]int{1969}, 966},
+		{[]int{100756}, 50346},
 	}
 
 	for _, c := range cases {

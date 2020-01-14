@@ -45,7 +45,16 @@ func ReadMassModuleFile(filename string) (numbers []int) {
 func CalculateFuel(masses []int) int {
 	sum := 0
 	for _, mass := range masses {
-		sum += int(math.Floor(float64(mass/3))) - 2
+		fuel := int(math.Floor(float64(mass/3))) - 2
+		sum += fuel
+		recFuel := []int{fuel}
+		if fuel > 0 {
+			var tempMass int = CalculateFuel(recFuel)
+			if tempMass < 0 {
+				tempMass = 0
+			}
+			sum += tempMass
+		}
 	}
 	return sum
 }

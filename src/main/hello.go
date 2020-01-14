@@ -25,13 +25,13 @@ func main() {
 	}
 	fmt.Printf("Mass Module file: %s\n", clArgs[0])
 
-	var numbers []int
-	numbers = puzzleutil.ReadMassModuleFile(clArgs[0])
-	if numbers == nil {
+	var masses []int
+	masses = puzzleutil.ReadMassModuleFile(clArgs[0])
+	if masses == nil {
 		fmt.Fprintf(os.Stderr, "ReadMassModuleFile returned nil\n")
 		return
 	}
-	var fuelCost int = puzzleutil.CalculateFuel(numbers)
+	var fuelCost int = puzzleutil.CalculateFuel(masses)
 	fmt.Fprintf(os.Stdout,
 		"Total Fuel cost for file:%s is: %d", clArgs[0], fuelCost)
 }
