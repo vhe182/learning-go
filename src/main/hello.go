@@ -7,12 +7,20 @@ import (
 	"puzzleutil"
 )
 
+/*
+  brief, Prints out a tool description plus usage hint
+  param cmd, the alias of the binary as provided by os.Args
+*/
 func PrintHelp(cmd string) {
 	fmt.Fprintf(os.Stderr, "This tool is used to calculate and demonstrate solutions "+
 		"to the 2019 advent of code challenges\n")
-	fmt.Fprintf(os.Stderr, "Usage: %s <path/to/input-file>\n", os.Args[0])
+	fmt.Fprintf(os.Stderr, "Usage: %s <path/to/input-file>\n", cmd)
 }
 
+/*
+  brief, solves the first puzzle of advent of code 2019, calculate required fuel.
+  param inputFilename, a relative or absolute path to an input file
+*/
 func handlePuzzle1(inputFilename string) {
 	_, err := os.Open(inputFilename)
 	if err != nil {
@@ -32,6 +40,10 @@ func handlePuzzle1(inputFilename string) {
 		"Total Fuel cost for file:%s is: %d", inputFilename, fuelCost)
 }
 
+/*
+  brief, Solves the second puzzle of advent of code 2019, operate on op code
+  param inputFilename, a relative or absolute path to an input file
+*/
 func handlePuzzle2(inputFilename string) {
 	fmt.Println("Implementation in progress")
 }
