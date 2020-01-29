@@ -58,3 +58,8 @@ func CalculateFuel(masses []int) int {
 	}
 	return sum
 }
+
+func ParseOpCode(codes []string) []int {
+	fmt.Println("opCodeParse: under construction")
+	return []int{1, 2, 3, 4}
+}
