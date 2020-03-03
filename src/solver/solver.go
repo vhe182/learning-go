@@ -7,10 +7,8 @@ import (
 	"puzzleutil"
 )
 
-/*
-  brief, Prints out a tool description plus usage hint
-  param cmd, the alias of the binary as provided by os.Args
-*/
+/* PrintHelp, Prints out a tool description plus usage hint
+   param cmd, the alias of the binary as provided by os.Args */
 func PrintHelp(cmd string) {
 	fmt.Fprintf(os.Stderr, "This tool is used to calculate and demonstrate solutions "+
 		"to the 2019 advent of code challenges\n")
@@ -85,5 +83,7 @@ func main() {
 		handlePuzzle1(*filenamePtr)
 	case "2":
 		handlePuzzle2(*filenamePtr)
+	default:
+		fmt.Fprintf(os.Stderr, "Puzzle %s is not implemented yet or does not exist.\n", *wordPtr)
 	}
 }
